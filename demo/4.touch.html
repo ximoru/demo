@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
+    <title></title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    /*使用addEventListener 可以多次绑定*/
+    /*手指刚刚触摸到屏幕的时候才会触发*/
+    var x = 0;
+    window.addEventListener('touchstart',function(e){
+        console.log('touchstart');
+        console.log(e.touches[0].clientX);
+        console.log(e.touches[0].screenX);
+        console.log(e.touches[0].pageX);
+        x = e.touches[0].clientX;
+    });
+
+    /*滑动事件*/
+    window.addEventListener('touchmove',function(e){
+        console.log('touchmove');
+        console.log(e.touches[0].clientX - x);
+    });
+
+    /*滑动结束事件*/
+    window.addEventListener('touchend',function(e){
+        console.log('touchend');
+        console.log(e);
+    });
+
+    /*这个不常用  是在来电或者alert（）*/
+    window.addEventListener('touchcancel',function(){
+        console.log('touchcancel');
+    });
+
+    window.addEventListener('click',function(){
+        console.log('click');
+    });
+    /*
+    *
+    * tap  移动端常用的点击事件
+    * */
+
+</script>
+</html>
